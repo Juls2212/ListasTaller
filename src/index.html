@@ -1,58 +1,105 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Gestión de Pedidos en Tiendas</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background: #f4f4f4;
-        }
-
-        h1 {
-            color: #1f3c88;
-        }
-
-        button {
-            margin: 5px;
-            padding: 10px 14px;
-            border: none;
-            background: #1f3c88;
-            color: white;
-            cursor: pointer;
-            border-radius: 6px;
-        }
-
-        button:hover {
-            background: #3156b3;
-        }
-
-        #salida {
-            margin-top: 20px;
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-        }
-
-        pre {
-            background: #f0f0f0;
-            padding: 10px;
-            overflow-x: auto;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión de Pedidos en Tiendas</title>
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-    <h1>Sistema de Gestión de Pedidos</h1>
+  <div class="container">
+    <header class="hero">
+      <div>
+        <p class="badge">Gestion de pedidos</p>
+        <h1>Gestión de pedidos en tiendas</h1>
+        <p class="subtitle">
+          Plataforma de gestion de pedidos en tiendas
+        </p>
+      </div>
+    </header>
 
-    <button id="btnCrear">1. Crear Requisición</button>
-    <button id="btnCotizar">2. Crear/Aceptar Cotización</button>
-    <button id="btnPedido">3. Preparar/Aceptar Pedido</button>
-    <button id="btnFactura">4. Generar Factura</button>
-    <button id="btnPago">5. Registrar Pago</button>
+    <section class="grid top-grid">
+      <div class="card">
+        <h2>Crear requisición</h2>
+        <form id="formRequisicion" class="form-grid">
+          <div>
+            <label for="producto">Producto</label>
+            <input id="producto" type="text" placeholder="Ej: Laptop" required />
+          </div>
 
-    <div id="salida"></div>
+          <div>
+            <label for="precio">Precio unitario</label>
+            <input id="precio" type="number" min="1" placeholder="Ej: 2500" required />
+          </div>
 
-    <script type="module" src="./dist/main.js"></script>
+          <div>
+            <label for="cantidad">Cantidad</label>
+            <input id="cantidad" type="number" min="1" placeholder="Ej: 2" required />
+          </div>
+
+          <div>
+            <label for="solicitante">Solicitante</label>
+            <input id="solicitante" type="text" placeholder="Ej: Carlos" required />
+          </div>
+
+          <div class="checkbox-row">
+            <input id="revision" type="checkbox" />
+            <label for="revision">Necesita revisión</label>
+          </div>
+
+          <button type="submit" class="primary">Crear requisición</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>Acciones del flujo</h2>
+        <div class="flow-buttons">
+          <button id="btnPrepararSolicitud">Preparar solicitud</button>
+          <button id="btnAprobarReq">Aprobar requisición</button>
+          <button id="btnCrearCotizacion">Crear cotización</button>
+          <button id="btnAceptarCotizacion">Aceptar cotización</button>
+          <button id="btnPrepararPedido">Preparar pedido</button>
+          <button id="btnAceptarPedido">Aceptar pedido</button>
+          <button id="btnCumplirPedido">Cumplir pedido</button>
+          <button id="btnGenerarFactura">Generar factura</button>
+          <button id="btnRegistrarPago">Registrar pago</button>
+        </div>
+        <p class="hint">
+          Las acciones se aplican sobre el último elemento creado de cada etapa.
+        </p>
+      </div>
+    </section>
+
+    <section class="stats" id="stats"></section>
+
+    <section class="grid panels">
+      <div class="card panel">
+        <h3>Requisiciones</h3>
+        <div id="requisiciones"></div>
+      </div>
+
+      <div class="card panel">
+        <h3>Cotizaciones</h3>
+        <div id="cotizaciones"></div>
+      </div>
+
+      <div class="card panel">
+        <h3>Pedidos</h3>
+        <div id="pedidos"></div>
+      </div>
+
+      <div class="card panel">
+        <h3>Facturas y pagos</h3>
+        <div id="facturasPagos"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Historial del proceso</h3>
+      <div id="historial"></div>
+    </section>
+  </div>
+
+  <script type="module" src="./dist/main.js"></script>
 </body>
 </html>
