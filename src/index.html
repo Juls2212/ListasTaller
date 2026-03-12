@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Pedidos en Tiendas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f4f4f4;
+        }
+
+        h1 {
+            color: #1f3c88;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 14px;
+            border: none;
+            background: #1f3c88;
+            color: white;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+
+        button:hover {
+            background: #3156b3;
+        }
+
+        #salida {
+            margin-top: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        pre {
+            background: #f0f0f0;
+            padding: 10px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de Gestión de Pedidos</h1>
+
+    <button id="btnCrear">1. Crear Requisición</button>
+    <button id="btnCotizar">2. Crear/Aceptar Cotización</button>
+    <button id="btnPedido">3. Preparar/Aceptar Pedido</button>
+    <button id="btnFactura">4. Generar Factura</button>
+    <button id="btnPago">5. Registrar Pago</button>
+
+    <div id="salida"></div>
+
+    <script type="module" src="./dist/main.js"></script>
+</body>
+</html>
