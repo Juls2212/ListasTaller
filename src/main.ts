@@ -1,4 +1,4 @@
-import { iniciarApp } from "./ui/apps";
+import { iniciarApp } from "./ui/App";
 
 document.addEventListener("DOMContentLoaded", () => {
     iniciarApp();
